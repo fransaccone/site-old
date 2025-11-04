@@ -21,9 +21,8 @@ ICON32   = public/icon32.png
 ICON24   = public/icon24.png
 ICON16   = public/icon16.png
 
-RSSTITLE       = Francesco Saccone
-RSSDESCRIPTION = Francesco Saccone's articles.
-RSSDIR         = articles
+RSSTITLE = Francesco Saccone
+RSSDIR   = articles
 
 ICONSVG = public/icon.svg
 
@@ -109,7 +108,7 @@ $(RSS):
 
 	printf '<title>$(RSSTITLE)</title>' >> $@
 	printf '<link>$(BASEURL)/$(RSSDIR)/</link>' >> $@
-	printf "<description>$(RSSDESCRIPTION)</description>" >> $@
+	printf "<description>$$(cat $(RSSDIR)/index.desc)</description>" >> $@
 	printf "<language>en-us</language>" >> $@; \
 
 	pages=$$(for f in $(PAGES); do echo \
