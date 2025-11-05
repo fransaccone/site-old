@@ -59,9 +59,12 @@ uninstall:
 	done
 
 $(PAGES) $(PAGE404) $(PAGE5XX):
-	cat $(HEADER) | sed "s/@DESCRIPTION@/$$(cat $(@:.html=.desc))/g" \
-	              | tr -d '\n\t' | sed -e 's/  \+/ /g' > $@
+	cat $(HEADER) \
+	| sed "s/@DESCRIPTION@/$$(tr '\n' ' ' < $(@:.html=.desc))/g" \
+	| tr -d '\n\t' | sed -e 's/  \+/ /g' > $@
+
 	$(LOWDOWN) -t html $(@:.html=.md) >> $@
+
 	cat $(FOOTER) | tr -d '\n\t' | sed 's/  \+/ /g' >> $@
 
 $(FAVICON): $(ICON256) $(ICON128) $(ICON64) $(ICON48) $(ICON32) $(ICON24) \
@@ -109,8 +112,10 @@ $(RSS):
 
 	printf '<title>$(RSSTITLE)</title>' >> $@
 	printf '<link>$(BASEURL)/$(RSSDIR)/</link>' >> $@
-	printf "<description>$$(cat $(RSSDIR)/index.desc)</description>" >> $@
-	printf "<language>en-us</language>" >> $@; \
+	printf '<description>' >> $@
+	tr '\n' ' ' < $(RSSDIR)/index.desc >> $@
+	printf '</description>' >> $@
+	printf "<language>en-us</language>" >> $@
 
 	pages=$$( \
 		for p in $(PAGES); do \
