@@ -148,7 +148,13 @@ $(RSS):
 		lastmod=$$(date -u -d @"$$lastmod" \
 		           +"%a, %d %b %Y %H:%M:%S +0000"); \
 		printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
-		content=$$(tail -n +2 "$${p%.html}.md" | $(LOWDOWN) -t html); \
+		content=$$(tail -n +2 "$${p%.html}.md" \
+		           | $(LOWDOWN) -t html \
+		           | sed -e 's/&/\&amp;/g' \
+		                 -e 's/</\&lt;/g' \
+		                 -e 's/>/\&gt;/g' \
+		                 -e 's/"/\&quot;/g' \
+		                 -e "s/'/\&apos;/g"); \
 		printf "<description>$$content</description>" >> $@; \
 		printf '</item>' >> $@; \
 	done
