@@ -102,7 +102,7 @@ handles packages.
 Nix is the cross-platform package manager NixOS is based on. It takes a
 distinctive approach in managing packages; there are no global shared paths
 between them, unlike common package managers which directly install them to the
-root file system, and every package resides in a unique isolated source
+root file system, and every package resides in a unique isolated build
 directory of `/nix/store/`.
 
 After a package is installed in its directory, the Nix package manager proceeds
