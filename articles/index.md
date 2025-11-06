@@ -2,4 +2,4 @@
 
 | Date       | Article
 |------------|---------
-| 2025-11-04 | [NixOS: the Ultimate Computing Solution](./nixos-the-ultimate-computing-solution/)
+| 2025-11-05 | [NixOS: the Ultimate Computing Solution](./nixos-the-ultimate-computing-solution/)
