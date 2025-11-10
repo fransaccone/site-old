@@ -1,0 +1,105 @@
+#!/bin/sh -eu
+
+# Time format specified by RSS 2.0.
+timefmt='%a, %d %b %Y %H:%M:%S +0000'
+
+if [ $# -lt 3 ]; then
+	echo "$0 host title directory [page ...]" >&2
+	exit 1
+fi
+
+host="$1"
+title="$2"
+dir="$3"
+
+shift 3
+
+# Set pages to a newline-separated list of lines of format "modification file",
+# where file is in dir.
+pages=""
+for p in $@; do
+	if [ "${p#$dir/}" != "$p" ]; then
+		pages=$(printf "$pages\n$(tail -n +2 ${p%.html}.md.time) $p")
+	fi
+done
+
+# Sort pages to have the most recent one on top.
+pages=$(echo "$pages" | sort -r -n)
+
+# Set lastbuildts, which is the last modification timestamp of the whole feed,
+# to the last modification timestamp of the most recent page.
+lastbuildts=$(echo "$pages" | head -n 1 | cut -d ' ' -f 1)
+
+# Set lastbuild to the formatted time of lastbuildts.
+lastbuild=$(date -u -d @"$lastbuildts" +"$timefmt")
+
+# Make pages a space-separated list of files, now ordered by last
+# modification; i.e. remove the timestamp at the beginning of each line.
+pages=$(echo "$pages" | cut -d ' ' -f 2 | tr '\n' ' ')
+
+printf '<?xml version="1.0" encoding="UTF-8"?>'
+printf '<rss version="2.0">'
+printf '<channel>'
+
+printf "<title>$title</title>"
+printf "<link>https://$host/$dir/</link>"
+printf "<description>$(tr '\n' ' ' < $dir/index.desc)</description>"
+printf '<language>en-us</language>'
+printf "<lastBuildDate>$lastbuild</lastBuildDate>"
+
+for p in $pages; do
+	# Ignore index page.
+	if [ "$p" = "$dir/index.html" ]; then
+		continue
+	fi
+
+	# Only have the path contain a trailing "/*.html" for pages which are
+	# not index files; if they are, just use the directory as the path.
+	if [ "$(echo $p | tail -c 12)" = '/index.html' ]; then
+		path=$(dirname $p)
+	else
+		path="$p"
+	fi
+
+	# Retrieve creation timestamp creationts and set creation to the
+	# formatted time.
+	creationts=$(head -n 1 "${p%.html}.md.time")
+	creation=$(date -u -d @"$creationts" +"$timefmt")
+
+	# Retrieve last modification timestamp lastmodts and set lastmod to the
+	# formatted time.
+	lastmodts=$(tail -n +2 "${p%.html}.md.time")
+	lastmod=$(date -u -d @"$lastmodts" +"$timefmt")
+
+	# Set content to the translated HTML content of the page, excluding the
+	# first line; it should be the page source without the title header.
+	content=$(tail -n +2 ${p%.html}.md | ${LOWDOWN:-lowdown} -t html)
+
+	# Replace @HOST@ with host in content.
+	content=$(echo $content | sed 's|@HOST@|$host|g')
+
+	# Set xmlcontent to content, escaping the characters needed to embed
+	# it in XML.
+	xmlcontent="$content"
+	xmlcontent=$(echo $xmlcontent | sed 's/&/\&amp;/g')
+	xmlcontent=$(echo $xmlcontent | sed 's/</\&lt;/g')
+	xmlcontent=$(echo $xmlcontent | sed 's/>/\&gt;/g')
+	xmlcontent=$(echo $xmlcontent | sed 's/"/\&quot;/g')
+	xmlcontent=$(echo $xmlcontent | sed "s/'/\&apos;/g")
+
+	printf '<item>'
+
+	printf "<title>$(cat ${p%.html}.title)</title>"
+	printf "<link>https://$host/$path</link>"
+	printf "<guid>https://$host/$path</guid>"
+	printf "<pubDate>$creation</pubDate>"
+	printf "<lastBuildDate>$lastmod</lastBuildDate>"
+	printf "<description>$xmlcontent</description>"
+
+	printf '</item>'
+done
+
+printf '</channel>'
+printf '</rss>'
+
+printf '\n'

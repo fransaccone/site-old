@@ -107,64 +107,7 @@ $(ICON16):
 	$(INKSCAPE) -w 16 -h 16 $(ICONSVG) -o $@
 
 $(RSS):
-	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
-	printf '<rss version="2.0">' >> $@
-	printf '<channel>' >> $@
-
-	printf '<title>$(RSSTITLE)</title>' >> $@
-	printf '<link>https://$(HOST)/$(RSSDIR)/</link>' >> $@
-	printf '<description>' >> $@
-	tr '\n' ' ' < $(RSSDIR)/index.desc >> $@
-	printf '</description>' >> $@
-	printf "<language>en-us</language>" >> $@
-
-	pages=$$( \
-		for p in $(PAGES); do \
-			if [ "$${p#$(RSSDIR)/}" = "$$p" ]; then \
-				continue; \
-			fi; \
-			echo $$(tail -n +2 "$${p%.html}.md.time") "$$p"; \
-		done; \
-	); \
-	lastbuild=$$(echo $$pages | sort -r -n | head -n 1 | cut -d ' ' -f 1); \
-	lastbuild=$$(date -u -d @"$$lastbuild" \
-	             +"%a, %d %b %Y %H:%M:%S +0000"); \
-	printf "<lastBuildDate>$$lastbuild</lastBuildDate>" >> $@; \
-	pages=$$(echo "$$pages" | sort -r -n | cut -d ' ' -f 2); \
-	for p in $$pages; do \
-		if [ "$$p" = '$(RSSDIR)/index.html' ]; then \
-			continue; \
-		elif [ "$$(echo $$p | tail -c 12)" = '/index.html' ]; then \
-			path="$$(dirname $$p)/"; \
-		else \
-			path=$$p; \
-		fi; \
-		printf '<item>' >> $@; \
-		printf "<title>$$(cat $${p%.html}.title)</title>" >> $@; \
-		printf "<link>https://$(HOST)/$$path</link>" >> $@; \
-		printf "<guid>https://$(HOST)/$$path</guid>" >> $@; \
-		created=$$(head -n 1 "$${p%.html}.md.time"); \
-		created=$$(date -u -d @"$$created" \
-		           +"%a, %d %b %Y %H:%M:%S +0000"); \
-		printf "<pubDate>$$created</pubDate>" >> $@; \
-		lastmod=$$(tail -n +2 "$${p%.html}.md.time"); \
-		lastmod=$$(date -u -d @"$$lastmod" \
-		           +"%a, %d %b %Y %H:%M:%S +0000"); \
-		printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
-		content=$$(tail -n +2 "$${p%.html}.md" \
-		           | $(LOWDOWN) -t html \
-		           | sed 's|@HOST@|$(HOST)|g' \
-		           | sed -e 's/&/\&amp;/g' \
-		                 -e 's/</\&lt;/g' \
-		                 -e 's/>/\&gt;/g' \
-		                 -e 's/"/\&quot;/g' \
-		                 -e "s/'/\&apos;/g"); \
-		printf "<description>$$content</description>" >> $@; \
-		printf '</item>' >> $@; \
-	done
-
-	printf '</channel>' >> $@
-	printf '</rss>' >> $@
+	./utils/genrss $(HOST) "$(RSSTITLE)" $(RSSDIR) $(PAGES) > $@
 
 $(SITEMAP):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
