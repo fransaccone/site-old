@@ -5,9 +5,9 @@ along with their respective clone URLs. They are mirrored on
 [GitHub](https://github.com/fsaccone) and
 [Codeberg](https://codeberg.org/fsaccone).
 
-| Repository | Clone URL
-|------------|-----------
-| `flake`    | <git://@HOST@/flake>
-| `pr`       | <git://@HOST@/pr>
-| `site`     | <git://@HOST@/site>
-| `zion`     | <git://@HOST@/zion>
+| Repository | Description       | Clone URL
+|------------|-------------------|-----------
+| `flake`    | Nix flake.        | <git://@HOST@/flake>
+| `pr`       | Package manager.  | <git://@HOST@/pr>
+| `site`     | Website.          | <git://@HOST@/site>
+| `zion`     | Operating system. | <git://@HOST@/zion>
