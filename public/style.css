@@ -1,6 +1,22 @@
+html {
+	--bg:    #eeeeee;
+	--bgdim: #e4e4e4;
+	--fg:    #1b1b1b;
+	--fgdim: #acacac;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		--bg:    #111111;
+		--bgdim: #1b1b1b;
+		--fg:    #e4e4e4;
+		--fgdim: #535353;
+	}
+}
+
 body {
-	background-color: #eeeeee;
-	color: #1b1b1b;
+	background-color: var(--bg);
+	color: var(--fg);
 	font-family: sans-serif;
 	font-size: 1rem;
 	line-height: 1.6;
@@ -22,12 +38,11 @@ footer {
 
 header,
 footer {
-	color: #acacac;
+	color: var(--fgdim);
 	font-family: serif;
 	margin: 1em 0;
 	padding: 1em 0;
 }
-
 header nav {
 	align-items: flex-start;
 	display: flex;
@@ -39,7 +54,7 @@ header a {
 }
 
 header a:hover {
-	color: #1b1b1b;
+	color: var(--fg);
 	opacity: 1;
 	text-decoration: none;
 }
@@ -63,7 +78,7 @@ a[rev="footnote"]:hover {
 }
 
 .footnotes {
-	color: #acacac;
+	color: var(--fgdim);
 	transition: 0.2s ease;
 }
 
@@ -110,13 +125,13 @@ p img {
 
 hr {
 	border: solid 0.1em;
-	color: #acacac;
+	color: var(--fgdim);
 	margin: 2em 30%;
 }
 
 blockquote {
 	border-left: solid 0.15em;
-	border-left-color: #acacac;
+	border-left-color: var(--fgdim);
 	font-style: italic;
 	margin-left: 0.5em;
 	padding: 0.5em 1em;
@@ -138,7 +153,7 @@ strong {
 code,
 pre,
 table {
-	background-color: #e4e4e4;
+	background-color: var(--bgdim);
 	border-radius: 0.3em;
 	padding: 0.2em;
 }
@@ -175,39 +190,5 @@ sup {
 @media (orientation: portrait) {
 	body {
 		padding: 0 2rem;
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	body {
-		background-color: #111111;
-		color: #e4e4e4;
-	}
-
-	header,
-	footer {
-		color: #535353;
-	}
-
-	header a:hover {
-		color: #e4e4e4;
-	}
-
-	.footnotes {
-		color: #535353;
-	}
-
-	hr {
-		color: #535353;
-	}
-
-	blockquote {
-		border-left-color: #535353;
-	}
-
-	code,
-	pre,
-	table {
-		background-color: #1b1b1b;
 	}
 }
