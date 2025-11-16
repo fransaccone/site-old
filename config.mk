@@ -6,5 +6,5 @@ MAGICK   = magick
 
 HOST = frasac.com
 
-TITLE    = Francesco Saccone
+TITLE    = Frasac
 RSSTITLE = $(TITLE)
