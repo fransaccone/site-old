@@ -4,7 +4,7 @@ INKSCAPE = inkscape
 LOWDOWN  = lowdown
 MAGICK   = magick
 
-HOST = francescosaccone.com
+HOST = frasac.com
 
 TITLE    = Francesco Saccone
 RSSTITLE = $(TITLE)
