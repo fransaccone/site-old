@@ -130,7 +130,7 @@ p img {
 }
 
 hr {
-	border: solid 0.1em;
+	border: solid 1px;
 	color: var(--fgdim);
 	margin: 2em 30%;
 }
