@@ -6,7 +6,6 @@ along with their respective clone URLs. They are mirrored on
 
 | Repository | Description       | Clone URL
 |------------|-------------------|-----------
-| `flake`    | Nix flake.        | <git://@HOST@/flake>
 | `pr`       | Package manager.  | <git://@HOST@/pr>
 | `site`     | Website.          | <git://@HOST@/site>
 | `zion`     | Operating system. | <git://@HOST@/zion>
