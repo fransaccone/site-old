@@ -164,6 +164,11 @@ table {
 	padding: 0.2em;
 }
 
+pre,
+table {
+	width: 100%;
+}
+
 pre {
 	overflow: auto;
 	padding: 1em;
@@ -177,7 +182,6 @@ pre code {
 table {
 	border-collapse: collapse;
 	table-layout: fixed;
-	width: 100%;
 }
 
 th,
