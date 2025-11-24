@@ -59,8 +59,11 @@ uninstall:
 	done
 
 $(PAGES) $(PAGE404) $(PAGE5XX):
+	title=$$(cat $(@:.html=.title) 2> /dev/null || echo ''); \
+	title=$$(if [ -n "$$title" ]; then echo " — $$title"; fi); \
+	title="$(TITLE)$$title"; \
 	cat $(HEADER) \
-	| sed "s/@TITLE@/$(TITLE) — $$(cat $(@:.html=.title))/g" \
+	| sed "s/@TITLE@/$$title/g" \
 	| sed "s/@DESCRIPTION@/$$(tr '\n' ' ' < $(@:.html=.desc))/g" \
 	| tr -d '\n\t' | sed -e 's/  \+/ /g' > $@
 
