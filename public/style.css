@@ -168,6 +168,11 @@ blockquote {
 	font-style: italic;
 	margin-left: 0.5em;
 	padding: 0.5em 1em;
+	transition: color var(--transitiontime);
+}
+
+blockquote:hover {
+	color: var(--fg);
 }
 
 em,
