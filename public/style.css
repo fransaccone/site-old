@@ -32,6 +32,12 @@ body {
 	padding: 0 24%;
 }
 
+@media (orientation: portrait) {
+	body {
+		padding: 0 2rem;
+	}
+}
+
 header {
 	border-bottom: solid 1px;
 	display: flex;
@@ -242,10 +248,4 @@ td {
 
 sup {
 	font-size: smaller;
-}
-
-@media (orientation: portrait) {
-	body {
-		padding: 0 2rem;
-	}
 }
