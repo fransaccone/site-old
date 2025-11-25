@@ -156,7 +156,7 @@ hr {
 }
 
 blockquote {
-	border-left: solid 0.15em;
+	border-left: solid 1px;
 	border-left-color: var(--fgdim);
 	font-style: italic;
 	margin-left: 0.5em;
