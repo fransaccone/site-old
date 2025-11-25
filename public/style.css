@@ -57,7 +57,7 @@ footer {
 
 header > a {
 	flex-grow: 1;
-	text-align: right;
+	text-align: left;
 }
 
 header > a img {
@@ -74,10 +74,12 @@ header > a:hover img {
 header > nav {
 	display: flex;
 	flex-direction: column;
+	flex-grow: 1;
 }
 
 header > nav a {
 	color: inherit;
+	text-align: right;
 	text-decoration: none;
 	transition: color var(--transitiontime);
 }
