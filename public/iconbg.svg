@@ -6,7 +6,7 @@
 			<feGaussianBlur result="blur" in="SourceGraphic"
 			                stdDeviation="0.2"/>
 			<feGaussianBlur result="blurwide" in="SourceGraphic"
-			                stdDeviation="5"/>
+			                stdDeviation="1.2"/>
 			<feMerge>
 				<feMergeNode in="blur"/>
 				<feMergeNode in="blurwide"/>
