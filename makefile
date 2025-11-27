@@ -205,8 +205,8 @@ $(ICONCIRCLE16):
 	$(INKSCAPE) -w 16 -h 16 $(ICONCIRCLESVG) -o $@
 
 $(RSS):
-	LOWDOWN=$(LOWDOWN) ./utils/genrss $(HOST) "$(RSSTITLE)" $(RSSDIR) \
-	                                  $(PAGES) > $@
+	LOWDOWN=$(LOWDOWN) ./utils/genrss $(HOST) $(RSSDIR) $(EMAIL) \
+	                                  "$(RSSTITLE)" $(RSSDIR) $(PAGES) > $@
 
 $(SITEMAP):
 	./utils/gensitemap $(HOST) $(PAGES) > $@
