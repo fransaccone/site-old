@@ -12,7 +12,7 @@ md="$4"
 
 ${LOWDOWN:-lowdown} -t html "$md" | sed "s|@HOST@|$host|g"
 
-if [ "${md#$rssdir/}" != "$md" ]; then
+if [ "${md#$rssdir/}" != "$md" ] && [ "${md#$rssdir/}" != "index.md" ]; then
 	echo -n '<hr/>'
 	echo -n '<a id="reply" href="mailto:'
 	echo -n "$email?subject=RE:%20$(sed 's/ /%20/g' ${md%.md}.title)"
