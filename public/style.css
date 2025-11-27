@@ -121,6 +121,16 @@ a[rev="footnote"]:hover {
 	color: inherit;
 }
 
+#reply {
+	color: var(--fgdim);
+	display: inline-block;
+	font-family: serif;
+	font-size: 1.5em;
+	text-align: right;
+	text-decoration: none;
+	width: 100%;
+}
+
 h1,
 h2,
 h3,
