@@ -121,7 +121,7 @@ a[rev="footnote"]:hover {
 	color: inherit;
 }
 
-#reply {
+#discuss {
 	color: var(--fgdim);
 	display: inline-block;
 	font-family: serif;

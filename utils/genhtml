@@ -14,7 +14,7 @@ ${LOWDOWN:-lowdown} -t html "$md" | sed "s|@HOST@|$host|g"
 
 if [ "${md#$rssdir/}" != "$md" ] && [ "${md#$rssdir/}" != "index.md" ]; then
 	echo -n '<hr/>'
-	echo -n '<a id="reply" href="mailto:'
-	echo -n "$email?subject=RE:%20$(sed 's/ /%20/g' ${md%.md}.title)"
-	echo -n '">Reply</a>'
+	echo -n '<a id="discuss" href="mailto:'
+	echo -n "$email?subject=[Discuss]%20$(sed 's/ /%20/g' ${md%.md}.title)"
+	echo -n '">Discuss</a>'
 fi
