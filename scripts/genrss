@@ -4,15 +4,14 @@
 timefmt='%a, %d %b %Y %H:%M:%S +0000'
 
 if [ $# -lt 3 ]; then
-	echo "$0 host rssdir email title directory [page ...]" >&2
+	echo "$0 host email title directory [page ...]" >&2
 	exit 1
 fi
 
 host="$1"
-rssdir="$2"
-email="$3"
-title="$4"
-dir="$5"
+email="$2"
+title="$3"
+dir="$4"
 
 shift 3
 
@@ -75,7 +74,7 @@ for p in $pages; do
 
 	# Set content to the translated HTML content of the page, excluding the
 	# first line; it should be the page source without the title header.
-	content=$(./scripts/genhtml "$host" "$rssdir" "$email" "${p%.html}.md")
+	content=$(./scripts/genhtml "$host" "$email" "${p%.html}.md")
 
 	# Replace @HOST@ with host in content.
 	content=$(echo $content | sed 's|@HOST@|$host|g')

@@ -96,7 +96,7 @@ $(PAGES) $(PAGE404) $(PAGE5XX):
 	| sed "s/@DESCRIPTION@/$$(tr '\n' ' ' < $(@:.html=.desc))/g" \
 	| tr -d '\n\t' | sed -e 's/  \+/ /g' > $@
 
-	LOWDOWN=$(LOWDOWN) ./scripts/genhtml $(HOST) $(RSSDIR) $(EMAIL) \
+	LOWDOWN=$(LOWDOWN) ./scripts/genhtml $(HOST) $(EMAIL) \
 	                                     $(@:.html=.md) >> $@
 
 	cat $(FOOTER) | tr -d '\n\t' | sed 's/  \+/ /g' >> $@
@@ -205,9 +205,8 @@ $(ICONCIRCLE16):
 	$(INKSCAPE) -w 16 -h 16 $(ICONCIRCLESVG) -o $@
 
 $(RSS):
-	LOWDOWN=$(LOWDOWN) ./scripts/genrss $(HOST) $(RSSDIR) $(EMAIL) \
-	                                    "$(RSSTITLE)" $(RSSDIR) \
-	                                    $(PAGES) > $@
+	LOWDOWN=$(LOWDOWN) ./scripts/genrss $(HOST) $(EMAIL) "$(RSSTITLE)" \
+	                                    $(RSSDIR) $(PAGES) > $@
 
 $(SITEMAP):
 	./scripts/gensitemap $(HOST) $(PAGES) > $@
