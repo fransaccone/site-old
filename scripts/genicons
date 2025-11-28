@@ -5,6 +5,10 @@ lowsizes="256 128 64 48 32 24 16"
 
 for i in '' 'bg' 'circle'; do
 	for n in $highsizes $lowsizes; do
+		if [ -f "public/icon$i$n.png" ]; then
+			continue
+		fi
+
 		printf "Exporting icon$i$n.png."
 
 		${INKSCAPE:-inkscape} -w $n -h $n "public/icon$i.svg" \
@@ -14,10 +18,12 @@ for i in '' 'bg' 'circle'; do
 	done
 done
 
-printf "Exporting favicon.ico."
+if [ ! -f favicon.ico ]; then
+	printf "Exporting favicon.ico."
 
-icons=$(for n in $lowsizes; do echo "public/icon$n.png"; done)
+	icons=$(for n in $lowsizes; do echo "public/icon$n.png"; done)
 
-${MAGICK:-magick} $icons favicon.ico
+	${MAGICK:-magick} $icons favicon.ico
 
-printf "\r\033[KExported favicon.ico.\n"
+	printf "\r\033[KExported favicon.ico.\n"
+fi
