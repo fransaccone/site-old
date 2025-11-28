@@ -55,7 +55,8 @@ if [ ! -e 'build/articles/rss.xml' ]; then
 	pages=$(find src/root/articles -type f -name '*.md' \
 	                               ! -path 'src/root/articles/index.md')
 
-	./scripts/getrss "$host" "$discussemail" "$sitetitle" 'articles' \
+	./scripts/getrss "$host" "$discussemail" "$sitetitle" "$desc" \
+	                 'src/root' 'articles' $pages \
 	                 > 'build/articles/rss.xml'
 
 	printf "\r\033[KGenerated build/articles/rss.xml.\n"

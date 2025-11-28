@@ -3,21 +3,23 @@
 # Time format specified by RSS 2.0.
 timefmt='%a, %d %b %Y %H:%M:%S +0000'
 
-if [ $# -ne 4 ]; then
-	echo "$0 host discussemail title reldir" >&2
+if [ $# -lt 6 ]; then
+	echo "$0 host discussemail title desc basedir reldir [page ...]" >&2
 	exit 1
 fi
 
 host="$1"
 discussemail="$2"
 title="$3"
-reldir="$4"
+desc="$4"
+basedir="$5"
+reldir="$6"
 
-srcdir="src/root/$reldir"
+shift 6
 
 # Set pages to a newline-separated list of lines of format "modification file".
 pages=""
-for p in $(find "$srcdir" -type f -name '*.md' ! -path "$srcdir/index.md"); do
+for p in $@; do
 	pages=$(printf "$pages\n$(tail -n +2 $p.time) $p")
 done
 
@@ -41,12 +43,12 @@ printf '<channel>'
 
 printf "<title>$title</title>"
 printf "<link>https://$host/$reldir/</link>"
-printf "<description>$(cat $srcdir/index.desc | tr '\n' ' ')</description>"
+printf "<description>$desc</description>"
 printf '<language>en-us</language>'
 printf "<lastBuildDate>$lastbuild</lastBuildDate>"
 
 for p in $pages; do
-	relp="$reldir/${p#$srcdir/}"
+	relp="${p#$basedir/}"
 
 	# Only have the path contain a trailing "/*.md" for pages which are
 	# not index files; if they are, just use the directory as the path.
