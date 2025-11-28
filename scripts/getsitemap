@@ -3,32 +3,35 @@
 # ISO time format.
 timefmt='%Y-%m-%dT%H:%M:%S%:z'
 
-if [ $# -lt 1 ]; then
-	echo "$0 host [page ...]" >&2
+if [ $# -lt 2 ]; then
+	echo "$0 host basedir [page ...]" >&2
 	exit 1
 fi
 
 host="$1"
+basedir="$2"
 
-shift 1
+shift 2
 
 printf '<?xml version="1.0" encoding="UTF-8"?>'
 printf '<urlset xmlns="http://www.sitemaps.org/schemas/0.9">'
 
 for p in $@; do
-	# Only have the path contain a trailing "/*.html" for pages which are
+	relp="${p#$basedir/}"
+
+	# Only have the path contain a trailing "/*.md" for pages which are
 	# not index files; if they are, just use the directory as the path.
-	if [ "$p" = 'index.html' ]; then
+	if [ "$relp" = 'index.md' ]; then
 		path=''
-	elif [ "$(echo $p | tail -c 12)" = '/index.html' ]; then
-		path="$(dirname $p)/"
+	elif [ "$(echo $relp | tail -c 10)" = '/index.md' ]; then
+		path="$(dirname $relp)/"
 	else
-		path="$p"
+		path="$relp"
 	fi
 
 	# Retrieve last modification timestamp lastmodts and set lastmod to the
 	# formatted time.
-	lastmodts=$(tail -n +2 "${p%.html}.md.time")
+	lastmodts=$(tail -n +2 "$p.time")
 	lastmod=$(date -u -d @"$lastmodts" +"$timefmt")
 
 	printf '<url>'
