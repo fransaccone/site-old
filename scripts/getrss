@@ -3,7 +3,7 @@
 # Time format specified by RSS 2.0.
 timefmt='%a, %d %b %Y %H:%M:%S +0000'
 
-if [ $# -lt 3 ]; then
+if [ $# -lt 4 ]; then
 	echo "$0 host email title directory [page ...]" >&2
 	exit 1
 fi
@@ -13,7 +13,7 @@ email="$2"
 title="$3"
 dir="$4"
 
-shift 3
+shift 4
 
 # Set pages to a newline-separated list of lines of format "modification file",
 # where file is in dir.
