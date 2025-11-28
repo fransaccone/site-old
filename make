@@ -36,6 +36,18 @@ for mdpath in $(cd src/root && find . -type f -name '*.md'); do
 	printf "\r\033[KGenerated $html.\n"
 done
 
+if [ ! -e 'build/sitemap.xml' ]; then
+	printf "Generating build/sitemap.xml."
+
+	./scripts/getsitemap "$host" 'src/root' \
+	                     $(find src/root -type f -name '*.md' \
+	                                     ! -path 'src/root/404.md' \
+	                                     ! -path 'src/root/5xx.md') \
+	                     > 'build/sitemap.xml'
+
+	printf "\r\033[KGenerated build/sitemap.xml.\n"
+fi
+
 if [ ! -e 'build/articles/rss.xml' ]; then
 	printf "Generating build/articles/rss.xml."
 
