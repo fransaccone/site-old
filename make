@@ -37,12 +37,16 @@ for mdpath in $(cd src/root && find . -type f -name '*.md'); do
 done
 
 if [ ! -e 'build/articles/rss.xml' ]; then
+	printf "Generating build/articles/rss.xml."
+
 	desc=$(cat 'src/root/articles/index.desc' | tr '\n' ' ')
 	pages=$(find src/root/articles -type f -name '*.md' \
 	                               ! -path 'src/root/articles/index.md')
 
 	./scripts/getrss "$host" "$discussemail" "$sitetitle" 'articles' \
 	                 > 'build/articles/rss.xml'
+
+	printf "\r\033[KGenerated build/articles/rss.xml.\n"
 fi
 
 if [ ! -e 'build/robots.txt' ]; then
