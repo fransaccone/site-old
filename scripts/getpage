@@ -33,6 +33,6 @@ cat header.html | sed "s/@DESCRIPTION@/$description/g" \
                 | tr -d '\n\t' \
                 | sed -e 's/  \+/ /g' \
 
-./scripts/genhtml "$host" "$email" "$md"
+./scripts/gethtml "$host" "$email" "$md"
 
 cat footer.html | tr -d '\n\t' | sed -e 's/  \+/ /g'
