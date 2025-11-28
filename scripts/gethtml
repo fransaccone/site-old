@@ -1,19 +1,20 @@
 #!/bin/sh -eu
 
 if [ $# -lt 3 ]; then
-	echo "$0 host email md" >&2
+	echo "$0 host md [discussemail]" >&2
 	exit 1
 fi
 
 host="$1"
-email="$2"
-md="$3"
+md="$2"
+discussemail="${3:-}"
 
 ${LOWDOWN:-lowdown} -t html "$md" | sed "s|@HOST@|$host|g"
 
-if [ "${md#articles/}" != "$md" ] && [ "${md#articles/}" != "index.md" ]; then
+if [ -n "$discussemail" ]; then
 	echo -n '<hr/>'
 	echo -n '<a id="discuss" href="mailto:'
-	echo -n "$email?subject=[Discuss]%20$(sed 's/ /%20/g' ${md%.md}.title)"
+	echo -n "$discussemail?subject=[Discuss]%20"
+	echo -n "$(sed 's/ /%20/g' ${md%.md}.title)"
 	echo -n '">Discuss</a>'
 fi
