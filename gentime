@@ -1,0 +1,11 @@
+#!/bin/sh -eu
+
+root='src/root'
+
+for f in $(find "$root" -type f -name '*.md' ! -path "$root/404.md" \
+                        ! -path "$root/5xx.md"); do
+	{
+		git log -1 --format='%at' --diff-filter=A -- "$f"
+		git log -1 --format='%at' -- "$f"
+	} > "$f.time"
+done
