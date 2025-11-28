@@ -54,14 +54,32 @@ if [ ! -e 'build/robots.txt' ]; then
 	echo "Generated build/robots.txt."
 fi
 
-./scripts/genicons
+mkdir -p build/public
 
-if [ ! -e 'build/public' ]; then
-	cp -r 'public' 'build'
-	echo "Copied public/ to build/public/."
-fi
+for f in public/*; do
+	if [ ! -e "build/$f" ]; then
+		cp -r "$f" 'build/public'
+		echo "Copied $f to build/public/."
+	fi
+done
+
+for svg in src/icon/*.svg; do
+	./scripts/genicons "$svg" 'build/public'
+
+	if [ ! -e "build/public/$(basename $svg)" ]; then
+		cp "$svg" 'build/public'
+		echo "Copied $svg to build/public/."
+	fi
+done
 
 if [ ! -e 'build/favicon.ico' ]; then
-	mv 'favicon.ico' 'build'
+	./scripts/genfavicon 'build/favicon.ico' 'build/public/icon256.png' \
+	                                         'build/public/icon128.png' \
+	                                         'build/public/icon64.png' \
+	                                         'build/public/icon48.png' \
+	                                         'build/public/icon32.png' \
+	                                         'build/public/icon24.png' \
+	                                         'build/public/icon16.png'
+
 	echo "Generated build/favicon.ico."
 fi

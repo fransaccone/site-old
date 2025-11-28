@@ -1,29 +1,23 @@
 #!/bin/sh -eu
 
-highsizes="4096 2048 1024 512"
-lowsizes="256 128 64 48 32 24 16"
-
-for i in '' 'bg' 'circle'; do
-	for n in $highsizes $lowsizes; do
-		if [ -f "public/icon$i$n.png" ]; then
-			continue
-		fi
-
-		printf "Exporting icon$i$n.png."
-
-		${INKSCAPE:-inkscape} -w $n -h $n "public/icon$i.svg" \
-		                      -o "public/icon$i$n.png"
-
-		printf "\r\033[KExported icon$i$n.png.\n"
-	done
-done
-
-if [ ! -f favicon.ico ]; then
-	printf "Exporting favicon.ico."
-
-	icons=$(for n in $lowsizes; do echo "public/icon$n.png"; done)
-
-	${MAGICK:-magick} $icons favicon.ico
-
-	printf "\r\033[KExported favicon.ico.\n"
+if [ $# -ne 2 ]; then
+	echo "$0 svg outdir" >&2
+	exit 1
 fi
+
+svg="$1"
+outdir="$2"
+
+name=$(basename "${svg%.svg}")
+
+for n in 16 24 32 48 64 128 256 512 1024 2048 4096; do
+	if [ -f "$outdir/$name$n.png" ]; then
+		continue
+	fi
+
+	printf "Generating $outdir/$name$n.png."
+
+	${INKSCAPE:-inkscape} -w $n -h $n "$svg" -o "$outdir/$name$n.png"
+
+	printf "\r\033[KGenerated $outdir/$name$n.png.\n"
+done
