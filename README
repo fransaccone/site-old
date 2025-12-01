@@ -43,6 +43,7 @@ The `src/` directory also contains the following files:
   `.md` files for each page.
 - `icon/*.svg` --- The base SVG image of a specific icon variation.
 - `robots.txt` --- The *robots.txt* file to be copied at root.
+- `title` --- The title of the website.
 
 Additionally, each file in the `public/` directory is copied to the relative
 `public/` directory of the build directory.

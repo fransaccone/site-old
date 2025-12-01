@@ -5,14 +5,15 @@ build=${BUILD:-'build'}
 src='src'
 root="$src/root"
 
-if [ $# -ne 3 ]; then
-	echo "$0 host sitetitle discussemail" >&2
+sitetitle=$(cat src/title)
+
+if [ $# -ne 2 ]; then
+	echo "$0 host discussemail" >&2
 	exit 1
 fi
 
 host="$1"
-sitetitle="$2"
-discussemail="$3"
+discussemail="$2"
 
 for mdpath in $(cd "$root" && find . -type f -name '*.md'); do
 	mdpath="${mdpath#./}"
