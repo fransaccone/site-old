@@ -172,6 +172,49 @@ h6 {
 	font-size: 1.2em;
 }
 
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+	color: var(--fgdim);
+	transition: color var(--transitiontime);
+}
+
+h1:hover::before,
+h2:hover::before,
+h3:hover::before,
+h4:hover::before,
+h5:hover::before,
+h6:hover::before {
+	color: var(--fg);
+}
+
+h1::before {
+	content: "# ";
+}
+
+h2::before {
+	content: "## ";
+}
+
+h3::before {
+	content: "### ";
+}
+
+h4::before {
+	content: "#### ";
+}
+
+h5::before {
+	content: "##### ";
+}
+
+h6::before {
+	content: "###### ";
+}
+
 p,
 ul,
 ol {
