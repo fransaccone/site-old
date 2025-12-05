@@ -1,7 +1,9 @@
 html {
 	--transitiontime: 0.2s cubic-bezier(0.5, 0, 0.5, 1);
 
-	--singularfont: "Poppins", serif;
+	--serif: "Libre Baskerville", serif;
+
+	--singularfont: "Poppins", var(--serif);
 	--singularsize: 1.8rem;
 	--singularweight: 500;
 
@@ -55,7 +57,7 @@ header {
 
 footer {
 	border-top: solid 1px;
-	font-family: serif;
+	font-family: var(--serif);
 	font-size: 0.9em;
 	text-align: center;
 	width: 100%;
