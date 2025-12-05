@@ -1,6 +1,7 @@
 html {
 	--transitiontime: 0.2s cubic-bezier(0.5, 0, 0.5, 1);
 
+	--sans-serif: "Work Sans", sans-serif;
 	--serif: "Libre Baskerville", serif;
 
 	--singularfont: "Poppins", var(--serif);
@@ -31,7 +32,7 @@ html {
 body {
 	background-color: var(--bg);
 	color: var(--fg);
-	font-family: sans-serif;
+	font-family: var(--sans-serif);
 	font-size: 1rem;
 	line-height: 1.6;
 	margin: 0;
