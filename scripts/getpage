@@ -30,9 +30,8 @@ fi
 
 cat "$header" | sed "s/@DESCRIPTION@/$description/g" \
               | sed "s/@TITLE@/$fulltitle/g" \
-              | tr -d '\n\t' \
-              | sed -e 's/  \+/ /g'
+              | ./scripts/minimize
 
 ./scripts/gethtml "$host" "$md" "$discussemail"
 
-cat "$footer" | tr -d '\n\t' | sed -e 's/  \+/ /g'
+cat "$footer" | ./scripts/minimize
