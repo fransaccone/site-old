@@ -43,12 +43,14 @@ header {
 	border-bottom: solid 1px;
 	display: flex;
 	flex-direction: row;
+	font-family: "Poppins", serif;
 	font-size: 1.5em;
 	justify-content: space-between;
 }
 
 footer {
 	border-top: solid 1px;
+	font-family: serif;
 	font-size: 0.9em;
 	text-align: center;
 	width: 100%;
@@ -57,7 +59,6 @@ footer {
 header,
 footer {
 	color: var(--fgdim);
-	font-family: serif;
 	margin: 1em 0;
 	padding: 1em 0;
 }
@@ -134,7 +135,7 @@ a[rev="footnote"]:hover {
 
 #discuss a {
 	color: var(--fgdim);
-	font-family: serif;
+	font-family: "Poppins", serif;
 	font-size: 1.5em;
 	text-decoration: none;
 }
