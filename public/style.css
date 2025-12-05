@@ -3,6 +3,7 @@ html {
 
 	--singularfont: "Poppins", serif;
 	--singularsize: 1.8em;
+	--singularweight: 500;
 
 	--bg:    #eeeeee;
 	--bgdim: #e4e4e4;
@@ -48,6 +49,7 @@ header {
 	flex-direction: row;
 	font-family: var(--singularfont);
 	font-size: var(--singularsize);
+	font-weight: var(--singularweight);
 	justify-content: space-between;
 }
 
@@ -140,6 +142,7 @@ a[rev="footnote"]:hover {
 	color: var(--fgdim);
 	font-family: var(--singularfont);
 	font-size: var(--singularsize);
+	font-weight: var(--singularweight);
 	text-decoration: none;
 }
 
