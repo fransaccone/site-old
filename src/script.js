@@ -1,38 +1,41 @@
 const titleSelector = "h1#pronunciation-francesco-saccone";
 const title = document.querySelector(titleSelector);
-const speaker = document.createElement("img");
-const style = document.createElement("style");
-const audio = new Audio("/public/francescosaccone.wav");
 
-title.firstChild.remove();
+if (title) {
+	const speaker = document.createElement("img");
+	const style = document.createElement("style");
+	const audio = new Audio("/public/francescosaccone.wav");
 
-speaker.src = "/public/speaker.svg";
-speaker.alt = "<Audio>";
+	title.firstChild.remove();
 
-title.insertAdjacentText("afterbegin", " ");
-title.insertAdjacentElement("afterbegin", speaker);
+	speaker.src = "/public/speaker.svg";
+	speaker.alt = "<Audio>";
 
-style.textContent = `
-	${titleSelector}:hover {
-		cursor: pointer;
-	}
+	title.insertAdjacentText("afterbegin", " ");
+	title.insertAdjacentElement("afterbegin", speaker);
 
-	${titleSelector} > img {
-		filter: var(--fgdimfilter);
-		transition: filter var(--transitiontime);
-	}
+	style.textContent = `
+		${titleSelector}:hover {
+			cursor: pointer;
+		}
 
-	${titleSelector}.audio-playing > img {
-		filter: var(--fgfilter);
-	}
-`;
-document.head.appendChild(style);
+		${titleSelector} > img {
+			filter: var(--fgdimfilter);
+			transition: filter var(--transitiontime);
+		}
 
-title.addEventListener("click", () => {
-	title.classList.add("audio-playing");
-	audio.play();
-});
+		${titleSelector}.audio-playing > img {
+			filter: var(--fgfilter);
+		}
+	`;
+	document.head.appendChild(style);
 
-audio.addEventListener("ended", () => {
-	title.classList.remove("audio-playing");
-});
+	title.addEventListener("click", () => {
+		title.classList.add("audio-playing");
+		audio.play();
+	});
+
+	audio.addEventListener("ended", () => {
+		title.classList.remove("audio-playing");
+	});
+}
