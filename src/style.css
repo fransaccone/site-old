@@ -237,7 +237,7 @@ h6::before {
 }
 
 h1#francesco-saccone::after {
-	content: "/fran\0002c8\0002a7esko sak\0002c8ko\0002d0ne/";
+	content: "[fran.\0002c8t\000283e.sko sak.\0002c8ko\0002d0.ne]";
 	color: var(--fgdim);
 	display: block;
 	font-family: var(--monospace);
