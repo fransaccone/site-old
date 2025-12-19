@@ -1,3 +1,5 @@
+/* Variables. */
+
 html {
 	--transitiontime: 0.2s cubic-bezier(0.5, 0, 0.5, 1);
 
@@ -30,131 +32,7 @@ html {
 	}
 }
 
-body {
-	background-color: var(--bg);
-	color: var(--fg);
-	font-family: var(--sans-serif);
-	font-size: 1rem;
-	line-height: 1.6;
-	margin: 0;
-	padding: 0 24%;
-}
-
-@media (orientation: portrait) {
-	body {
-		padding: 0 2rem;
-	}
-}
-
-header {
-	align-items: flex-end;
-	border-bottom: solid 1px;
-	display: flex;
-	flex-direction: row;
-	font-family: var(--titlefont);
-	font-size: var(--titlesize);
-	font-weight: var(--titleweight);
-	justify-content: space-between;
-}
-
-footer {
-	border-top: solid 1px;
-	font-family: var(--serif);
-	text-align: center;
-	width: 100%;
-}
-
-header,
-footer {
-	color: var(--fgdim);
-	margin: 1em 0;
-	padding: 1em 0;
-}
-
-header > div {
-	flex-grow: 1;
-	width: 100%;
-}
-
-header > div img {
-	height: 3em;
-}
-
-header > nav {
-	display: flex;
-	flex-direction: column;
-}
-
-header > nav > ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	text-align: right;
-}
-
-a:not(.glow-hover) {
-	color: inherit;
-	text-decoration: underline;
-	transition: opacity var(--transitiontime);
-}
-
-a:not(.glow-hover):hover {
-	opacity: 0.7;
-}
-
-a.glow-hover {
-	color: var(--fgdim);
-	text-decoration: none;
-	transition: color var(--transitiontime);
-}
-
-a.glow-hover:hover {
-	color: var(--fg);
-}
-
-a.glow-hover img {
-	filter: var(--fgdimfilter);
-	transition: filter var(--transitiontime);
-}
-
-a.glow-hover:hover img {
-	filter: var(--fgfilter);
-}
-
-a[rel="footnote"],
-a[rel="footnote"]:hover,
-a[rev="footnote"],
-a[rev="footnote"]:hover {
-	text-decoration: none;
-}
-
-div.footnotes {
-	color: var(--fgdim);
-	transition: color var(--transitiontime);
-}
-
-div.footnotes:hover {
-	color: inherit;
-}
-
-div#publication-date,
-div#discuss {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	width: 100%;
-}
-
-div#publication-date span,
-div#discuss a {
-	font-family: var(--titlefont);
-	font-size: calc(0.8 * var(--titlesize));
-	font-weight: var(--titleweight);
-}
-
-div#publication-date span {
-	color: var(--fgdim);
-}
+/* Basic styles. */
 
 h1,
 h2,
@@ -243,6 +121,16 @@ h5::before {
 
 h6::before {
 	content: "######";
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+	transition: opacity var(--transitiontime);
+}
+
+a:hover {
+	opacity: 0.7;
 }
 
 p,
@@ -372,4 +260,125 @@ td {
 
 sup {
 	font-size: smaller;
+}
+
+/* Body, header and footer styles. */
+
+body {
+	background-color: var(--bg);
+	color: var(--fg);
+	font-family: var(--sans-serif);
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0 24%;
+}
+
+@media (orientation: portrait) {
+	body {
+		padding: 0 2rem;
+	}
+}
+
+header {
+	align-items: flex-end;
+	border-bottom: solid 1px;
+	display: flex;
+	flex-direction: row;
+	font-family: var(--titlefont);
+	font-size: var(--titlesize);
+	font-weight: var(--titleweight);
+	justify-content: space-between;
+}
+
+footer {
+	border-top: solid 1px;
+	font-family: var(--serif);
+	text-align: center;
+	width: 100%;
+}
+
+header,
+footer {
+	color: var(--fgdim);
+	margin: 1em 0;
+	padding: 1em 0;
+}
+
+header > div {
+	flex-grow: 1;
+	width: 100%;
+}
+
+header > div img {
+	height: 3em;
+}
+
+header > nav {
+	display: flex;
+	flex-direction: column;
+}
+
+header > nav > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+
+/* Specific styles. */
+
+a.glow-hover {
+	color: var(--fgdim);
+	opacity: 1;
+	text-decoration: none;
+	transition: color var(--transitiontime);
+}
+
+a.glow-hover:hover {
+	color: var(--fg);
+}
+
+a.glow-hover img {
+	filter: var(--fgdimfilter);
+	transition: filter var(--transitiontime);
+}
+
+a.glow-hover:hover img {
+	filter: var(--fgfilter);
+}
+
+a[rel="footnote"],
+a[rel="footnote"]:hover,
+a[rev="footnote"],
+a[rev="footnote"]:hover {
+	text-decoration: none;
+}
+
+div.footnotes {
+	color: var(--fgdim);
+	transition: color var(--transitiontime);
+}
+
+div.footnotes:hover {
+	color: inherit;
+}
+
+div#publication-date,
+div#discuss {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+div#publication-date span,
+div#discuss a {
+	font-family: var(--titlefont);
+	font-size: calc(0.8 * var(--titlesize));
+	font-weight: var(--titleweight);
+}
+
+div#publication-date span {
+	color: var(--fgdim);
 }
