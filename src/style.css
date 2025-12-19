@@ -128,12 +128,12 @@ a[rev="footnote"]:hover {
 	text-decoration: none;
 }
 
-.footnotes {
+div.footnotes {
 	color: var(--fgdim);
 	transition: color var(--transitiontime);
 }
 
-.footnotes:hover {
+div.footnotes:hover {
 	color: inherit;
 }
 
