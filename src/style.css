@@ -3,6 +3,8 @@
 html {
 	--transitiontime: 0.2s cubic-bezier(0.5, 0, 0.5, 1);
 
+	--borderradius: 0.3em;
+
 	--monospace: "Office Code Pro", monospace;
 	--sansserif: "Work Sans", sans-serif;
 	--serif: "Libre Baskerville", serif;
@@ -153,7 +155,7 @@ img {
 p > img:only-child {
 	border: solid 1px;
 	border-color: var(--fgdim);
-	border-radius: 0.3em;
+	border-radius: var(--borderradius);
 	filter: grayscale(1);
 	height: auto;
 	margin-left: 50%;
@@ -232,7 +234,7 @@ code,
 pre,
 table {
 	background-color: var(--bgdim);
-	border-radius: 0.3em;
+	border-radius: var(--borderradius);
 	padding: 0.2em;
 }
 
