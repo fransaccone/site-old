@@ -4,6 +4,7 @@ html {
 	--transitiontime: 0.2s cubic-bezier(0.5, 0, 0.5, 1);
 
 	--borderradius: 0.3em;
+	--linesize: 1px;
 
 	--monospace: "Office Code Pro", monospace;
 	--sansserif: "Work Sans", sans-serif;
@@ -153,7 +154,7 @@ img {
 }
 
 p > img:only-child {
-	border: solid 1px;
+	border: solid var(--linesize);
 	border-color: var(--fgdim);
 	border-radius: var(--borderradius);
 	filter: grayscale(1);
@@ -169,7 +170,7 @@ p > img:only-child {
 	p > img:only-child {
 		margin-left: 0;
 		transform: none;
-		width: calc(100% - 2 * (1em + 1px));
+		width: calc(100% - 2 * (1em + var(--linesize)));
 	}
 }
 
@@ -184,14 +185,14 @@ img[src$=".svg"] {
 
 hr {
 	border: none;
-	border-bottom: solid 1px;
+	border-bottom: solid var(--linesize);
 	color: var(--fgdim);
 	margin: 2em 30%;
 }
 
 blockquote,
 dl {
-	border-left: solid 1px;
+	border-left: solid var(--linesize);
 	color: var(--fgdim);
 	margin-left: 0.5em;
 	padding: 0.5em 1em;
@@ -298,7 +299,7 @@ body {
 
 header {
 	align-items: flex-end;
-	border-bottom: solid 1px;
+	border-bottom: solid var(--linesize);
 	display: flex;
 	flex-direction: row;
 	font-family: var(--titlefont);
@@ -308,7 +309,7 @@ header {
 }
 
 footer {
-	border-top: solid 1px;
+	border-top: solid var(--linesize);
 	font-family: var(--serif);
 	text-align: center;
 	width: 100%;
