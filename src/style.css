@@ -210,6 +210,16 @@ h6::before {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
+	transition: color var(--transitiontime);
+}
+
+h1:hover::before,
+h2:hover::before,
+h3:hover::before,
+h4:hover::before,
+h5:hover::before,
+h6:hover::before {
+	color: var(--fg);
 }
 
 h1::before {
