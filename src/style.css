@@ -77,12 +77,6 @@ a:hover > img {
 a::after,
 a::before {
 	color: var(--fgdim);
-	transition: color var(--transitiontime);
-}
-
-a:hover::after,
-a:hover::before {
-	color: var(--fg);
 }
 
 a::after {
