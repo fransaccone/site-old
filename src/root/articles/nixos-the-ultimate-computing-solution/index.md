@@ -83,8 +83,8 @@ configuration and reuse it for other devices. This way we are less dependent
 on the physical machine being used and more focused on the operating system
 maintenance itself.
 
-Saying that it is possible to *perfect the system once to reuse it at any time
-using NixOS* is of course incorrect, since no perfect system exists and the
+Saying that it is possible to _perfect the system once to reuse it at any time
+using NixOS_ is of course incorrect, since no perfect system exists and the
 configuration is going to be changed frequently, especially during its
 beginnings; the benefit of this distribution is instead to never do the same
 work of configuring a machine again.
@@ -119,7 +119,7 @@ preventing conflicts and avoiding bloat from unused dependencies.
 
 Actually, walking through the configuration, the operating system identifies
 which packages are needed and marks all the removed ones as removable. It is,
-in fact, possible to *garbage collect*; that is, to delete all the unused
+in fact, possible to _garbage collect_; that is, to delete all the unused
 packages from the system:
 
 	$ nix-collect-garbage -d
@@ -150,7 +150,7 @@ the new usage of `pkgs.quark`; it is not contained in a list such as the
 `environment.systemPackages` mentioned earlier, it is instead employed inside
 a string.
 
-As a matter of fact, `pkgs.quark` evaluates to the *path* of the build
+As a matter of fact, `pkgs.quark` evaluates to the _path_ of the build
 directory of the `quark` package, which is, as stated earlier, a subdirectory
 of `/nix/store/`; that means that `"${pkgs.quark}/bin/quark"` is the actual
 location of the installed `quark` executable.
@@ -163,7 +163,7 @@ the bare minimum.
 
 One limitation of the distribution is the inherent dependency on systemd and
 the [GNU core utils](https://www.gnu.org/software/coreutils/), which some,
-myself included, may consider *bloat*. While it is possible to replace the
+myself included, may consider _bloat_. While it is possible to replace the
 core utilities accessible from the shell with any alternative, the GNU ones
 always remain installed due to the dependence of other packages. In addition,
 [Bash](https://www.gnu.org/software/bash/) is always set as the target of the
@@ -195,10 +195,10 @@ to the following reasons:
    the suite of utilities have progressed to incorporate the essential features
    that makes NixOS as it is today.
 2. Growing Interest in the Linux Desktop — Recently, many have been
-   *distro-hopping*, trying to find the perfect operating system for their
+   _distro-hopping_, trying to find the perfect operating system for their
    needs; those who have settled on NixOS may share some of the reasons
    explored in this article.
-3. Constant Expansion of [*Nixpkgs*](https://github.com/NixOS/nixpkgs) — Over
+3. Constant Expansion of [_Nixpkgs_](https://github.com/NixOS/nixpkgs) — Over
    time, many packages have been released in Nixpkgs, the main package
    repository administered by the NixOS Foundation. In addition, many more
    packages have seen increased maintenance due to the growing number of Nix
