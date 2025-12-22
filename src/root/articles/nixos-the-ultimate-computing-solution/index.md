@@ -187,16 +187,16 @@ ecosystem.
 NixOS has seen increasing popularity over the years; this may have happened due
 to the following reasons:
 
-1. Improvements in the NixOS Software --- Over time, the package manager and
+1. Improvements in the NixOS Software — Over time, the package manager and
    the suite of utilities have progressed to incorporate the essential features
    that makes NixOS as it is today.
 
-2. Growing Interest in the Linux Desktop --- Recently, many have been
+2. Growing Interest in the Linux Desktop — Recently, many have been
    *distro-hopping*, trying to find the perfect operating system for their
    needs; those who have settled on NixOS may share some of the reasons
    explored in this article.
 
-3. Constant Expansion of [*Nixpkgs*](https://github.com/NixOS/nixpkgs) --- Over
+3. Constant Expansion of [*Nixpkgs*](https://github.com/NixOS/nixpkgs) — Over
    time, many packages have been released in Nixpkgs, the main package
    repository administered by the NixOS Foundation. In addition, many more
    packages have seen increased maintenance due to the growing number of Nix
