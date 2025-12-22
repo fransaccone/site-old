@@ -1,10 +1,18 @@
-const titleSelector = "h1#pronunciation-francesco-saccone";
-const title = document.querySelector(titleSelector);
+let title = null;
+
+for (const e of document.querySelectorAll("h1")) {
+	if (e.textContent.trim() == "Francesco Saccone")
+		title = e;
+}
 
 if (title) {
+	const id = "francesco-saccone";
+	const selector = `h1#${id}`;
 	const speaker = document.createElement("img");
 	const style = document.createElement("style");
 	const audio = new Audio("/public/francescosaccone.wav");
+
+	title.id = id;
 
 	title.firstChild.remove();
 
@@ -15,16 +23,16 @@ if (title) {
 	title.insertAdjacentElement("afterbegin", speaker);
 
 	style.textContent = `
-		${titleSelector}:hover {
+		${selector}:hover {
 			cursor: pointer;
 		}
 
-		${titleSelector} > img {
+		${selector} > img {
 			filter: var(--fgdimfilter);
 			transition: filter var(--transitiontime);
 		}
 
-		${titleSelector}.audio-playing > img {
+		${selector}.audio-playing > img {
 			filter: var(--fgfilter);
 		}
 	`;
