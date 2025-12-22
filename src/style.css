@@ -144,19 +144,6 @@ hr {
 	margin: 2em 30%;
 }
 
-blockquote {
-	border-left: solid var(--linesize);
-	color: var(--fgdim);
-	font-style: italic;
-	margin-left: 0.5em;
-	padding: 0.5em 1em;
-	transition: color var(--transitiontime);
-}
-
-blockquote:hover {
-	color: var(--fg);
-}
-
 em {
 	font-style: italic;
 }
@@ -165,28 +152,38 @@ strong {
 	font-weight: bold;
 }
 
-code,
+blockquote,
 pre {
-	background-color: var(--bgdim);
-	border-radius: var(--borderradius);
-	font-family: var(--monospace);
-	padding: 0.2em;
-}
-
-pre {
+	border-left: solid var(--linesize);
 	color: var(--fgdim);
-	overflow: auto;
-	padding: 1em;
+	margin-left: 0.5em;
+	padding: 0.5em 1em;
 	transition: color var(--transitiontime);
-	white-space: pre;
 }
 
+blockquote:hover,
 pre:hover {
 	color: var(--fg);
 }
 
+blockquote {
+	font-style: italic;
+}
+
+pre {
+	font-family: var(--monospace);
+	overflow: auto;
+	white-space: pre;
+}
+
 pre code {
 	background: none;
+}
+
+code {
+	background-color: var(--bgdim);
+	border-radius: var(--borderradius);
+	padding: 0.2em;
 }
 
 /* Body, header and footer styles. */
