@@ -176,10 +176,6 @@ pre {
 	white-space: pre;
 }
 
-pre code {
-	background: none;
-}
-
 code {
 	font-family: var(--monospace);
 }
