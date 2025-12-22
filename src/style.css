@@ -120,8 +120,7 @@ hr {
 	margin: 2em 30%;
 }
 
-blockquote,
-dl {
+blockquote {
 	border-left: solid var(--linesize);
 	color: var(--fgdim);
 	margin-left: 0.5em;
@@ -129,8 +128,7 @@ dl {
 	transition: color var(--transitiontime);
 }
 
-blockquote:hover,
-dl:hover {
+blockquote:hover {
 	color: var(--fg);
 }
 
@@ -138,23 +136,8 @@ blockquote {
 	font-style: italic;
 }
 
-dt {
-	font-size: 1.2em;
-	font-weight: bold;
-}
-
-dd {
+em {
 	font-style: italic;
-	margin-left: 2em;
-}
-
-em,
-figcaption {
-	font-style: italic;
-}
-
-figcaption {
-	font-size: 0.9em;
 }
 
 strong {
@@ -162,8 +145,7 @@ strong {
 }
 
 code,
-pre,
-table {
+pre {
 	background-color: var(--bgdim);
 	border-radius: var(--borderradius);
 	padding: 0.2em;
@@ -188,21 +170,6 @@ pre:hover {
 
 pre code {
 	background: none;
-}
-
-table {
-	border-collapse: collapse;
-	table-layout: fixed;
-	width: 100%;
-}
-
-th,
-td {
-	overflow: hidden;
-	padding: 0.5em;
-	text-align: center;
-	text-overflow: ellipsis;
-	word-wrap: break-word;
 }
 
 sup {
