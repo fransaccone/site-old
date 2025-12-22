@@ -56,34 +56,34 @@ h2 {
 }
 
 a {
-	color: var(--fgdim);
+	color: var(--fg);
 	text-decoration: none;
 	transition: color var(--transitiontime);
 }
 
 a:hover {
-	color: var(--fg);
+	color: var(--fgdim);
 }
 
 a > img {
-	filter: var(--fgdimfilter);
+	filter: var(--fgfilter);
 	transition: filter var(--transitiontime);
 }
 
 a:hover > img {
-	filter: var(--fgfilter);
+	filter: var(--fgdimfilter);
 }
 
 a::after,
 a::before {
-	color: var(--fg);
+	color: var(--fgdim);
 	font-family: var(--monospace);
 	transition: color var(--transitiontime);
 }
 
 a:hover::after,
 a:hover::before {
-	color: var(--fgdim);
+	color: var(--fg);
 }
 
 a::after {
