@@ -24,7 +24,7 @@ link to.
 The website structure is composed by the `.md` files in `src/root/`.
 
 Each `.md` file is a page and is translated to HTML using
-[lowdown](https://kristaps.bsd.lv/lowdown/).
+[md4c](https://github.com/mity/md4c).
 
 Every `.md` file is accompanied by the following files:
 

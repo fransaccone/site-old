@@ -20,7 +20,7 @@ if [ -n "$discussemail" ]; then
 	echo -n '</div>'
 fi
 
-${LOWDOWN:-lowdown} -t html "$md" | sed "s|@HOST@|$host|g"
+sed "s|@HOST@|$host|g" "$md" | ${MD2HTML:-md2html}
 
 if [ -n "$discussemail" ]; then
 	echo -n '<div id="discuss">'
