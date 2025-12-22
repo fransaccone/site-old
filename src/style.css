@@ -40,11 +40,7 @@ html {
 /* Basic styles. */
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
 	font-family: var(--titlefont);
 	font-weight: var(--titleweight);
 	position: relative;
@@ -53,79 +49,10 @@ h6 {
 
 h1 {
 	font-size: 2em;
-	padding: 0 2em;
 }
 
 h2 {
 	font-size: 1.5em;
-	padding: 0 3em;
-}
-
-h3 {
-	font-size: 1em;
-	padding: 0 4em;
-}
-
-h4 {
-	font-size: 1em;
-	padding: 0 5em;
-}
-
-h5 {
-	font-size: 1em;
-	padding: 0 6em;
-}
-
-h6 {
-	font-size: 1em;
-	padding: 0 7em;
-}
-
-h1::before,
-h2::before,
-h3::before,
-h4::before,
-h5::before,
-h6::before {
-	color: var(--fgdim);
-	left: 0;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: color var(--transitiontime);
-}
-
-h1:hover::before,
-h2:hover::before,
-h3:hover::before,
-h4:hover::before,
-h5:hover::before,
-h6:hover::before {
-	color: var(--fg);
-}
-
-h1::before {
-	content: "#";
-}
-
-h2::before {
-	content: "##";
-}
-
-h3::before {
-	content: "###";
-}
-
-h4::before {
-	content: "####";
-}
-
-h5::before {
-	content: "#####";
-}
-
-h6::before {
-	content: "######";
 }
 
 a {
