@@ -188,14 +188,9 @@ body {
 	font-family: var(--sansserif);
 	font-size: 1rem;
 	line-height: 1.6;
-	margin: 0 24%;
+	margin: 0 auto;
+	max-width: 40rem;
 	padding: 2rem;
-}
-
-@media (orientation: portrait) {
-	body {
-		margin: 0;
-	}
 }
 
 header {
