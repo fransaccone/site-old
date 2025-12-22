@@ -117,19 +117,10 @@ p img {
 	filter: grayscale(1);
 	height: auto;
 	margin-left: 50%;
-	margin-right: calc(50% - 24em);
 	padding: 1em;
 	transform: translateX(-50%);
 	transition: all var(--transitiontime);
-	width: 24em;
-}
-
-@media (orientation: portrait) {
-	p img {
-		margin-left: 0;
-		transform: none;
-		width: calc(100% - 2 * (1em + var(--linesize)));
-	}
+	width: 70%;
 }
 
 p img:hover {
