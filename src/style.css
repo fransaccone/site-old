@@ -74,6 +74,26 @@ a:hover > img {
 	filter: var(--fgfilter);
 }
 
+a::after,
+a::before {
+	color: var(--fg);
+	font-family: var(--monospace);
+	transition: color var(--transitiontime);
+}
+
+a:hover::after,
+a:hover::before {
+	color: var(--fgdim);
+}
+
+a::after {
+	content: ">";
+}
+
+a::before {
+	content: "<";
+}
+
 p,
 ul,
 ol {
@@ -251,6 +271,11 @@ a.glow-hover {
 
 a.glow-hover:hover {
 	color: var(--fg);
+}
+
+a.glow-hover::after,
+a.glow-hover::before {
+	content: "";
 }
 
 a.glow-hover img {
