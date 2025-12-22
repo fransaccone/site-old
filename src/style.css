@@ -155,7 +155,7 @@ img {
 	width: auto;
 }
 
-p > img:only-child {
+p img {
 	border: solid var(--linesize);
 	border-color: var(--fgdim);
 	border-radius: var(--borderradius);
@@ -170,14 +170,14 @@ p > img:only-child {
 }
 
 @media (orientation: portrait) {
-	p > img:only-child {
+	p img {
 		margin-left: 0;
 		transform: none;
 		width: calc(100% - 2 * (1em + var(--linesize)));
 	}
 }
 
-p > img:only-child:hover {
+p img:hover {
 	border-color: var(--fg);
 	filter: grayscale(0);
 }
