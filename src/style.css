@@ -162,11 +162,11 @@ p > img:only-child {
 	filter: grayscale(1);
 	height: auto;
 	margin-left: 50%;
-	margin-right: calc(50% - 30%);
+	margin-right: calc(50% - 24em);
 	padding: 1em;
 	transform: translateX(-50%);
 	transition: all var(--transitiontime);
-	width: 30%;
+	width: 24em;
 }
 
 @media (orientation: portrait) {
