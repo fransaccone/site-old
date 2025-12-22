@@ -1,4 +1,5 @@
-# Git
+Git
+===
 
 All my [Git](https://git-scm.com/) repositories are listed below and mirrored
 on [GitHub](https://github.com/frasaccone).

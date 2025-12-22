@@ -1,4 +1,5 @@
-# NixOS: the Ultimate Computing Solution
+NixOS: the Ultimate Computing Solution
+======================================
 
 [NixOS](https://nixos.org/) is an unconventional
 [Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution) which
@@ -12,7 +13,8 @@ distribution of choice for all of my machines.
 In the following sections, I am going to explain the reasons why I believe
 NixOS is the most versatile option for nearly all use cases.
 
-## Write Once, Use Anywhere
+Write Once, Use Anywhere
+------------------------
 
 The statement that NixOS uses a declarative configuration to describe the
 system may sound confusing at first for someone who has never explored this
@@ -87,7 +89,8 @@ configuration is going to be changed frequently, especially during its
 beginnings; the benefit of this distribution is instead to never do the same
 work of configuring a machine again.
 
-## Absence of Bloatware
+Absence of Bloatware
+--------------------
 
 Due to the fact that every detail of the machine is described and exactly
 applied from the configuration files, a NixOS device exactly contains what its
@@ -171,7 +174,8 @@ This may be a deal-breaker for some; however, in my opinion, the advantages of
 the structure provided by the operating system outweight the disadvantages of
 using these large pieces of software.
 
-## Community
+Community
+---------
 
 NixOS was created after
 [its creator](https://en.wikipedia.org/wiki/Armijn_Hemel) proposed applying the
