@@ -5,6 +5,7 @@ html {
 
 	--transitiontime: 0.2s cubic-bezier(0.5, 0, 0.5, 1);
 
+	--indentation: 2rem;
 	--linesize: 1px;
 	--paragraphgap: 2rem;
 
@@ -125,7 +126,7 @@ ul:not(:first-child) {
 
 ul,
 ol {
-	margin-left: 2.5em;
+	margin-left: var(--indentation);
 	padding: 0;
 }
 
@@ -155,7 +156,7 @@ pre,
 p img {
 	border-left: solid var(--linesize);
 	color: var(--fgdim);
-	margin-left: 0.5em;
+	margin-left: var(--indentation);
 	padding: 0.5em 1em;
 	transition: color var(--transitiontime);
 }
