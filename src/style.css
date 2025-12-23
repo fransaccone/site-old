@@ -172,7 +172,7 @@ p img {
 	filter: grayscale(1);
 	height: auto;
 	transition: all var(--transitiontime);
-	width: calc(100% - 2 * (var(--linesize) + 0.5em + 1em));
+	width: calc(100% - 2 * (var(--linesize) + var(--indentation) + 2em));
 }
 
 p:hover img {
