@@ -174,7 +174,7 @@ p img {
 	transition: all var(--transitiontime);
 	/* Remove the same amount of space to the right as to the left to
 	   center the img. */
-	width: calc(100% - 2 * (var(--linesize) + var(--indentation) + 2em));
+	width: calc(100% - 2 * (var(--linesize) + var(--indentation) + 1em));
 }
 
 p:hover img {
