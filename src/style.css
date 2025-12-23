@@ -118,7 +118,7 @@ li:hover::marker {
 
 a {
 	color: var(--fg);
-	text-decoration: none;
+	text-decoration: underline;
 	transition: color var(--transitiontime);
 }
 
@@ -133,19 +133,6 @@ a > img {
 
 a:hover > img {
 	filter: var(--fgdimfilter);
-}
-
-a::after,
-a::before {
-	color: var(--fgdim);
-}
-
-a::after {
-	content: ">";
-}
-
-a::before {
-	content: "<";
 }
 
 img {
@@ -257,16 +244,12 @@ header > nav > ul {
 
 a.glow-hover {
 	color: var(--fgdim);
+	text-decoration: none;
 	transition: color var(--transitiontime);
 }
 
 a.glow-hover:hover {
 	color: var(--fg);
-}
-
-a.glow-hover::after,
-a.glow-hover::before {
-	content: "";
 }
 
 a.glow-hover img {
