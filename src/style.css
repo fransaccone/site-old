@@ -37,6 +37,20 @@ html {
 	}
 }
 
+/* Body. */
+
+body {
+	background-color: var(--bg);
+	color: var(--fg);
+	font-family: var(--sansserif);
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0 auto;
+	max-width: 38rem;
+	overflow-wrap: break-word;
+	padding: 0 2rem;
+}
+
 /* Basic styles. */
 
 h1,
@@ -165,19 +179,7 @@ code {
 	font-family: var(--monospace);
 }
 
-/* Body, header and footer styles. */
-
-body {
-	background-color: var(--bg);
-	color: var(--fg);
-	font-family: var(--sansserif);
-	font-size: 1rem;
-	line-height: 1.6;
-	margin: 0 auto;
-	max-width: 38rem;
-	overflow-wrap: break-word;
-	padding: 0 2rem;
-}
+/* Specific styles. */
 
 header {
 	align-items: flex-end;
@@ -225,8 +227,6 @@ header > nav > ul {
 	padding: 0;
 	text-align: right;
 }
-
-/* Specific styles. */
 
 a.glow-hover {
 	color: var(--fgdim);
