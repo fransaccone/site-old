@@ -172,6 +172,8 @@ p img {
 	filter: grayscale(1);
 	height: auto;
 	transition: all var(--transitiontime);
+	/* Remove the same amount of space to the right as to the left to
+	   center the img. */
 	width: calc(100% - 2 * (var(--linesize) + var(--indentation) + 2em));
 }
 
