@@ -188,6 +188,7 @@ blockquote {
 }
 
 pre {
+	border-right: solid var(--linesize);
 	font-family: var(--monospace);
 	overflow: auto;
 	white-space: pre;
