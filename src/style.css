@@ -103,6 +103,7 @@ hr {
 ol,
 ul {
 	margin-left: var(--indentation);
+	margin-right: var(--indentation);
 	padding: 0;
 }
 
@@ -158,6 +159,7 @@ p img {
 	border-left: solid var(--linesize);
 	color: var(--fgdim);
 	margin-left: var(--indentation);
+	margin-right: var(--indentation);
 	padding: 0.5em 1em;
 	transition: color var(--transitiontime);
 }
