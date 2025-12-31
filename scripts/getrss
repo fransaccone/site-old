@@ -23,19 +23,28 @@ for p in $@; do
 	pages=$(printf "$pages\n$(tail -n +2 $p.time) $p")
 done
 
-# Sort pages to have the most recent one on top.
-pages=$(echo "$pages" | sort -r -n)
+if [ -n "$pages" ]; then
+	# Sort pages to have the most recent one on top.
+	pages=$(echo "$pages" | sort -r -n)
 
-# Set lastbuildts, which is the last modification timestamp of the whole feed,
-# to the last modification timestamp of the most recent page.
-lastbuildts=$(echo "$pages" | head -n 1 | cut -d ' ' -f 1)
+	# Set lastbuildts, which is the last modification timestamp of the
+	# whole feed, to the last modification timestamp of the most recent
+	# page.
+	lastbuildts=$(echo "$pages" | head -n 1 | cut -d ' ' -f 1)
 
-# Set lastbuild to the formatted time of lastbuildts.
-lastbuild=$(date -u -d @"$lastbuildts" +"$timefmt")
+	# Set lastbuild to the formatted time of lastbuildts.
+	lastbuild=$(date -u -d @"$lastbuildts" +"$timefmt")
 
-# Make pages a space-separated list of files, now ordered by last
-# modification; i.e. remove the timestamp at the beginning of each line.
-pages=$(echo "$pages" | cut -d ' ' -f 2 | tr '\n' ' ')
+	# Make pages a space-separated list of files, now ordered by last
+	# modification; i.e. remove the timestamp at the beginning of each
+	# line.
+	pages=$(echo "$pages" | cut -d ' ' -f 2 | tr '\n' ' ')
+else
+	# If there is no page, it is still needed to find the last build date
+	# of the feed; this is set to the last modification of the index page.
+	lastbuildts=$(tail -n +2 "$basedir/$reldir/index.md.time")
+	lastbuild=$(date -u -d @"$lastbuildts" +"$timefmt")
+fi
 
 printf '<?xml version="1.0" encoding="UTF-8"?>'
 printf '<rss version="2.0">'
