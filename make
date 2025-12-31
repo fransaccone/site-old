@@ -27,9 +27,9 @@ for mdpath in $(cd "$root" && find . -type f -name '*.md'); do
 
 	mkdir -p "$(dirname $html)"
 
-	# If the page is in /articles/ and is not /articles/index.md.
-	if [ "${mdpath#articles/}" != "$mdpath" ] \
-	&& [ "${mdpath#articles/}" != 'index.md' ]; then
+	# If the page is in /blog/ and is not /blog/index.md.
+	if [ "${mdpath#blog/}" != "$mdpath" ] \
+	&& [ "${mdpath#blog/}" != 'index.md' ]; then
 		email="$discussemail"
 	else
 		email=""
@@ -55,17 +55,17 @@ if [ ! -e "$build/sitemap.xml" ]; then
 	printf "\r\033[KGenerated $build/sitemap.xml.\n"
 fi
 
-if [ ! -e "$build/articles/rss.xml" ]; then
-	printf "Generating $build/articles/rss.xml."
+if [ ! -e "$build/blog/rss.xml" ]; then
+	printf "Generating $build/blog/rss.xml."
 
-	desc=$(cat "$root/articles/index.desc" | tr '\n' ' ')
-	pages=$(find "$root/articles" -type f -name '*.md' \
-	                              ! -path "$root/articles/index.md")
+	desc=$(cat "$root/blog/index.desc" | tr '\n' ' ')
+	pages=$(find "$root/blog" -type f -name '*.md' \
+	                              ! -path "$root/blog/index.md")
 
 	./scripts/getrss "$host" "$discussemail" "$sitetitle" "$desc" \
-	                 "$root" 'articles' $pages > "$build/articles/rss.xml"
+	                 "$root" 'blog' $pages > "$build/blog/rss.xml"
 
-	printf "\r\033[KGenerated $build/articles/rss.xml.\n"
+	printf "\r\033[KGenerated $build/blog/rss.xml.\n"
 fi
 
 if [ ! -e "$build/robots.txt" ]; then
