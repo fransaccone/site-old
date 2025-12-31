@@ -67,6 +67,9 @@ for p in $pages; do
 		path="$relp"
 	fi
 
+	rawtitle=$(cat "${p%.md}.title")
+	title=$(echo -n "$rawtitle" | tr '\n' ' ')
+
 	# Retrieve creation timestamp creationts and set creation to the
 	# formatted time.
 	creationts=$(head -n 1 "$p.time")
@@ -95,7 +98,7 @@ for p in $pages; do
 
 	printf '<item>'
 
-	printf "<title>$(cat ${p%.md}.title)</title>"
+	printf "<title>$title</title>"
 	printf "<link>https://$host/$path</link>"
 	printf "<guid>https://$host/$path</guid>"
 	printf "<pubDate>$creation</pubDate>"

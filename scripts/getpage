@@ -12,23 +12,26 @@ header="$4"
 footer="$5"
 discussemail="${6:-}"
 
-desc="${md%.md}.desc"
-title="${md%.md}.title"
+descfile="${md%.md}.desc"
+titlefile="${md%.md}.title"
 
-if [ ! -r "$desc" ]; then
-	echo "File $desc does not exist or is not readable." >&2
+if [ ! -r "$descfile" ]; then
+	echo "File $descfile does not exist or is not readable." >&2
 	exit 1
 fi
 
-description="$(cat $desc | tr '\n' ' ')"
+rawdesc=$(cat "$descfile")
+desc=$(echo -n "$rawdesc" | tr '\n' ' ')
 
-if [ -r "$title" ]; then
-	fulltitle="$sitetitle — $(cat $title)"
+if [ -r "$titlefile" ]; then
+	rawtitle=$(cat "$titlefile")
+	title=$(echo -n "$rawtitle" | tr '/n' ' ')
+	fulltitle="$sitetitle — $title"
 else
 	fulltitle="$sitetitle"
 fi
 
-cat "$header" | sed "s/@DESCRIPTION@/$description/g" \
+cat "$header" | sed "s/@DESCRIPTION@/$desc/g" \
               | sed "s/@TITLE@/$fulltitle/g" \
               | ./scripts/minimize
 

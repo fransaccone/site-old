@@ -58,7 +58,9 @@ fi
 if [ ! -e "$build/blog/rss.xml" ]; then
 	printf "Generating $build/blog/rss.xml."
 
-	desc=$(cat "$root/blog/index.desc" | tr '\n' ' ')
+	rawdesc=$(cat "$root/blog/index.desc")
+	desc=$(echo -n "$rawdesc" | tr '\n' ' ')
+
 	pages=$(find "$root/blog" -type f -name '*.md' \
 	                              ! -path "$root/blog/index.md")
 
