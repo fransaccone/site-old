@@ -11,4 +11,5 @@ on [GitHub](https://github.com/frasaccone).
 - [`pr`](git://francescosaccone.com/pr) — Package manager.
 - [`site`](git://francescosaccone.com/site) — Website.
 - [`st`](git://francescosaccone.com/st) — Fork of st.
+- [`system`](git://francescosaccone.com/system) — System configuration.
 - [`zion`](git://francescosaccone.com/zion) — Operating system.
