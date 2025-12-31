@@ -8,8 +8,6 @@ programming. I also enjoy creating music in my spare time.
 Contact
 -------
 
-For inquiries, use the following email addresses:
-
 - [abuse@@HOST@](mailto:abuse@@HOST@) — Abuse Reporting
 - [admin@@HOST@](mailto:admin@@HOST@) — Administration
 - [contact@@HOST@](mailto:contact@@HOST@) — General Contact
