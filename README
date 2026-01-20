@@ -8,15 +8,13 @@ Installation
 
 The running of
 
-	$ ./make host sitetitle discussemail
+	$ ./make host discussemail
 
 builds the static content of the website in the `build/` directory. It is
 possible to change the output directory by setting the `BUILD` environment
 variable.
 
 The `host` parameter is the domain name of the website.
-
-The `sitetitle` parameter is the website title.
 
 The `discussemail` parameter is the email the *Discuss* buttons of the website
 link to.
