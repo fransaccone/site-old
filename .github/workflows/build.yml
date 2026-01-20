@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y md4c inkscape imagemagick
+          sudo apt-get install -y imagemagick inkscape pandoc
       - name: Build
         run: |
           ./make francescosaccone.com discuss@francescosaccone.com
