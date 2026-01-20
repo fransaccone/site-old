@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+     stroke="#ffffff" stroke-width="1" stroke-linecap="round"
+     stroke-linejoin="round">
+	<path d="M1 1 L15 1 L1 15 L15 15 L10 10 L15 5" stroke-dasharray="64">
+		<animate attributeName="stroke-dashoffset" begin="0s" dur="2s"
+		         from="64" to="0" fill="freeze" calcMode="spline"
+		         keyTimes="0;1" keySplines="0.6 0.1 0.4 1"/>
+		<animate attributeName="stroke-dashoffset" begin="3s" dur="2s"
+		         from="0" to="-64" fill="freeze" calcMode="spline"
+		         keyTimes="0;1" keySplines="0.6 0.1 0.4 1"/>
+	</path>
+	<line x1="8" y1="8" x2="8" y2="8" visibility="hidden">
+		<set attributeName="visibility" begin="1s" to="visible"/>
+		<animate attributeName="x1" begin="1s" dur="1s"
+		         to="1" fill="freeze" calcMode="spline"
+		         keyTimes="0;1" keySplines="0.4 0.2 0.2 1"/>
+		<animate attributeName="x1" begin="2.5s" dur="1s"
+		         to="8" fill="freeze" calcMode="spline"
+		         keyTimes="0;1" keySplines="0.4 0.2 0.2 1"/>
+		<set attributeName="visibility" begin="3.5s" to="hidden"/>
+	</line>
+</svg>
