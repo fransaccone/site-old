@@ -3,6 +3,13 @@ Site
 
 The website of Francesco Saccone, available at <https://francescosaccone.com/>.
 
+Requirements
+------------
+
+- [ImageMagick](https://imagemagick.org/)
+- [Inkscape](https://inkscape.org/)
+- [Pandoc](https://pandoc.org/)
+
 Installation
 ------------
 
