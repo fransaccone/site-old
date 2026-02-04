@@ -34,10 +34,10 @@ else
 	fulltitle="$sitetitle"
 fi
 
-cat "$header" | sed "s/@DESCRIPTION@/$desc/g" \
-              | sed "s/@TITLE@/$fulltitle/g" \
-              | ./scripts/minimize
+sed '/<!-- - -->/,$d' "$header" | sed "s/@DESCRIPTION@/$desc/g" \
+                                | sed "s/@TITLE@/$fulltitle/g" \
+                                | ./scripts/minimize
 
 ./scripts/gethtml "$host" "$md" "$discussemail"
 
-cat "$footer" | ./scripts/minimize
+sed '1,/<!-- - -->/d' "$footer" | ./scripts/minimize
