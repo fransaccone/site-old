@@ -15,5 +15,5 @@ Contact
 
 All outgoing emails are signed using the
 [OpenPGP](https://www.openpgp.org/about/) key available
-[here](/public/public.pgp). The fingerprint of the key is `5696 7E92 681F 8DC9
-999E FF0F A171 B43A A1EF C359`.
+[here](/public/public.pgp). The fingerprint of the key is `F6E5 36CE 3C25 128D
+A915 823C 8A1E D5CC CECD DC1C`.
